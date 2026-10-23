@@ -167,37 +167,46 @@ img {
 
 .faq .faq-group {
   border-bottom: 1px solid #ccc;
+}
+
+.faq .faq-group-body {
   padding-bottom: 20px;
 }
 
-.faq .faq-group .faq-group-header {
+.faq .faq-group-header {
+  margin: 0;
+}
+
+/* The whole question is a button: clickable and reachable with the keyboard */
+.faq .faq-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
   padding: 20px 0;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-.faq .faq-group .faq-group-header h3 {
+  background: none;
+  border: none;
+  font: inherit;
   font-weight: 600;
-  width: 95%;
-}
-
-.faq .faq-group .faq-group-header i {
-  position: absolute;
-  right: 0;
-  top: 35px;
-  font-size: 1.3rem;
+  color: inherit;
+  text-align: left;
   cursor: pointer;
 }
 
-.faq .faq-group .faq-group-body {
-  display: none;
+.faq .faq-toggle i {
+  flex-shrink: 0;
+  font-size: 1.3rem;
 }
 
-.faq .faq-group .faq-group-body.open {
-  display: block;
+.faq .faq-toggle:focus-visible,
+.faq .faq-menu button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+  border-radius: 5px;
 }
 
-.faq ul.faq-menu {
+.faq .faq-menu {
   max-width: 400px;
   margin: auto;
   display: flex;
@@ -206,17 +215,20 @@ img {
   background: #ddd;
   padding: 10px 20px;
   border-radius: 10px;
+}
+
+.faq .faq-menu button {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  font: inherit;
   font-weight: 600;
+  color: inherit;
   cursor: pointer;
 }
 
-.faq ul.faq-menu li {
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.faq ul.faq-menu li.active {
+.faq .faq-menu button.active {
   background: var(--primary-color);
   color: #fff;
 }
@@ -400,6 +412,7 @@ img {
 /* Hamburger Button */
 .hamburger-button {
   display: none;
+  position: relative; /* z-index only works on positioned elements */
   background: none;
   border: none;
   cursor: pointer;
@@ -413,6 +426,20 @@ img {
   height: 3px;
   background: #333;
   margin: 6px 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Turn the hamburger into an X while the menu is open */
+.hamburger-button[aria-expanded='true'] .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-button[aria-expanded='true'] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button[aria-expanded='true'] .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Mobile Menu */
@@ -425,11 +452,15 @@ img {
   z-index: 100;
   background: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  transition: right 0.3s ease-in-out;
+  /* Hidden menus must not be reachable with Tab: hide them after the slide-out */
+  visibility: hidden;
+  transition: right 0.3s ease-in-out, visibility 0s 0.3s;
 }
 
 .mobile-menu.active {
   right: 0;
+  visibility: visible;
+  transition: right 0.3s ease-in-out;
 }
 
 .mobile-menu ul {

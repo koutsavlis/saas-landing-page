@@ -225,21 +225,25 @@
   <section class="faq bg-light">
     <div class="container-sm">
       <h2 class="text-xl text-center">Frequently Asked Questions</h2>
-      <ul class="faq-menu">
-        <li class="active">All</li>
-        <li>Features</li>
-        <li>Pricing</li>
-      </ul>
+      <div class="faq-menu" role="group" aria-label="Filter questions by category">
+        <button type="button" class="active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="features" aria-pressed="false">Features</button>
+        <button type="button" data-filter="pricing" aria-pressed="false">Pricing</button>
+      </div>
+      <p id="faq-status" class="sr-only" aria-live="polite"></p>
       <div class="faq-content">
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              How does the contact management feature help me
-              keep track of clients and partners?
-            </h3>
-            <i class="fas fa-minus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body open">
+        <div class="faq-group" data-category="features">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-1" aria-expanded="false"
+              aria-controls="faq-answer-1">
+              <span>
+                How does the contact management feature help me
+                keep track of clients and partners?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
             <p>
               Store every client and partner in one place, with
               notes, files and the full history of your
@@ -250,16 +254,19 @@
           </div>
         </div>
 
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              Can I customize the dashboards and reporting
-              feature to display the metrics that are most
-              important to my business?
-            </h3>
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body">
+        <div class="faq-group" data-category="features">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-2" aria-expanded="false"
+              aria-controls="faq-answer-2">
+              <span>
+                Can I customize the dashboards and reporting
+                feature to display the metrics that are most
+                important to my business?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
             <p>
               Yes. Add the widgets you need, choose which KPIs
               to display and save different views for different
@@ -269,15 +276,18 @@
           </div>
         </div>
 
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              How does the task management feature help me
-              delegate tasks to my team and track progress?
-            </h3>
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body">
+        <div class="faq-group" data-category="features">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-3" aria-expanded="false"
+              aria-controls="faq-answer-3">
+              <span>
+                How does the task management feature help me
+                delegate tasks to my team and track progress?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
             <p>
               Create tasks, assign them to teammates and set due
               dates and priorities. Everyone sees what they own,
@@ -287,15 +297,18 @@
           </div>
         </div>
 
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              Can I collaborate with my team in real-time using
-              all tools?
-            </h3>
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body">
+        <div class="faq-group" data-category="features">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-4" aria-expanded="false"
+              aria-controls="faq-answer-4">
+              <span>
+                Can I collaborate with my team in real-time using
+                all tools?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
             <p>
               Yes. Comments, mentions and file sharing work
               across every tool, and changes appear instantly
@@ -305,14 +318,17 @@
           </div>
         </div>
 
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              Is the app available on all devices?
-            </h3>
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body">
+        <div class="faq-group" data-category="features">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-5" aria-expanded="false"
+              aria-controls="faq-answer-5">
+              <span>
+                Is the app available on all devices?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
             <p>
               Growth runs in any modern browser and has apps for
               iOS and Android. Your data syncs automatically, so
@@ -321,15 +337,18 @@
           </div>
         </div>
 
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              How does the app help me stay compliant when
-              working with freelancers and contractors?
-            </h3>
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body">
+        <div class="faq-group" data-category="features">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-6" aria-expanded="false"
+              aria-controls="faq-answer-6">
+              <span>
+                How does the app help me stay compliant when
+                working with freelancers and contractors?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
             <p>
               Store contracts, track agreements and keep a clear
               record of who did what and when. Role-based
@@ -339,14 +358,17 @@
           </div>
         </div>
 
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              Can I switch plans or cancel at any time?
-            </h3>
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body">
+        <div class="faq-group" data-category="pricing">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-7" aria-expanded="false"
+              aria-controls="faq-answer-7">
+              <span>
+                Can I switch plans or cancel at any time?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
             <p>
               Yes. You can upgrade, downgrade or cancel from
               your account settings at any time. Changes apply
@@ -356,14 +378,17 @@
           </div>
         </div>
 
-        <div class="faq-group">
-          <div class="faq-group-header">
-            <h3 class="text-md">
-              Is there a free trial of the Premium plan?
-            </h3>
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </div>
-          <div class="faq-group-body">
+        <div class="faq-group" data-category="pricing">
+          <h3 class="faq-group-header text-md">
+            <button type="button" class="faq-toggle" id="faq-question-8" aria-expanded="false"
+              aria-controls="faq-answer-8">
+              <span>
+                Is there a free trial of the Premium plan?
+              </span>
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-group-body" id="faq-answer-8" role="region" aria-labelledby="faq-question-8">
             <p>
               Yes, Premium comes with a 14-day free trial and no
               credit card is needed. If you don't upgrade, you
