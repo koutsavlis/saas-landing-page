@@ -15,12 +15,19 @@ body {
   font-size: 16px;
   line-height: 1.5;
   background: #fff;
-  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
   color: #333;
+}
+
+/* Visible focus ring for keyboard users (not shown on mouse click) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
 }
 
 ul {
@@ -75,7 +82,7 @@ img {
   background: url('../images/hero-bg.png') no-repeat;
   background-size: contain;
   background-position: center bottom;
-  height: 550px;
+  min-height: 550px;
 }
 
 .hero .hero-content {
@@ -108,7 +115,7 @@ img {
 }
 
 .testimonials .testimonials-heading {
-  width: 700px;
+  max-width: 700px;
   margin-bottom: 40px;
 }
 
@@ -264,7 +271,6 @@ img {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 30px;
-  justify-content: center;
   align-items: center;
 }
 
@@ -497,7 +503,7 @@ img {
     background: url('../images/hero-bg-mobile.png') no-repeat;
     background-size: 350px 400px;
     background-position: bottom;
-    height: 770px;
+    min-height: 770px;
   }
 
   .hero .hero-content,
@@ -513,7 +519,6 @@ img {
   }
 
   .testimonials .testimonials-heading {
-    max-width: 100%;
     text-align: center;
   }
 
@@ -548,5 +553,14 @@ img {
 @media (max-width: 500px) {
   .text-xxl {
     font-size: 2rem;
+  }
+}
+
+/* Respect users who ask the OS for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }
